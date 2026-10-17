@@ -42,9 +42,28 @@
 .prototype-note{margin-bottom:16px;border:1px solid #dbe7fb;border-radius:4px;background:#f7faff}.prototype-note summary{display:flex;align-items:center;min-height:42px;padding:0 16px;color:#2f73e6;font-weight:500;cursor:pointer;list-style:none}.prototype-note summary::-webkit-details-marker{display:none}.prototype-note summary::after{content:"⌄";margin-left:auto;color:#86909c}.prototype-note[open] summary{border-bottom:1px solid #e5edff}.prototype-note[open] summary::after{content:"⌃"}.prototype-note-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 28px;padding:16px;color:#606266;font-size:13px;line-height:1.7}.prototype-note-body section h4{margin:0 0 5px;color:#303133;font-size:13px;font-weight:600}.prototype-note-body p{margin:0}.prototype-note-body strong{color:#2f73e6;font-weight:500}@media(max-width:900px){.prototype-note-body{grid-template-columns:1fr}}
 .submenu a.menu-item{text-decoration:none}
 </style>
-</head>
+<style>
+/* 配置区开关状态标签与开关同步 */
+.config-switch input{width:64px!important;height:22px!important;border-radius:999px!important;background:#c9cdd4!important;position:relative}
+.config-switch input:before{top:2px!important;left:2px!important;width:18px!important;height:18px!important}
+.config-switch input:checked:before{left:44px!important}
+.config-switch span{display:inline-block;min-width:28px;font-size:0;color:#606266}
+.config-switch span:before{font-size:13px}
+.config-switch input:not(:checked)+span:before{content:"禁用"}
+.config-switch input:checked+span:before{content:"启用"}
+</style>
+<style>
+/* 胶囊开关：固定文字区与滑块区，避免两者重叠 */
+.permission-switch{width:64px!important;height:22px!important;padding:0!important;border-radius:999px;background:#c9cdd4;position:relative;overflow:hidden;color:transparent;font-size:0}
+.permission-switch::before{content:"禁用";position:absolute;right:8px;top:0;width:24px;height:22px;line-height:22px;color:#fff;font-size:10px;text-align:right;white-space:nowrap;z-index:1}
+.permission-switch::after{content:"";position:absolute;width:18px;height:18px;top:2px;left:auto;right:auto;transform:none;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0003;transition:left .18s}
+.permission-switch:not(.on)::after{left:2px}
+.permission-switch.on{background:#2f73e6}
+.permission-switch.on::before{content:"启用";left:8px;right:auto;width:24px;text-align:left}
+.permission-switch.on::after{left:44px;transform:none}
+</style></head>
 <body>
-<div class="app"><aside class="sidebar"><div class="brand"><img src="assets/distribution-brand.png" alt="领榜教育管理系统" style="width:186px;height:32px;object-fit:contain;object-position:left center"></div><nav class="menu"><div class="menu-title open"><span class="menu-icon">⌘</span>分销管理<span class="chevron">⌃</span></div><div class="submenu"><a class="menu-item" href="distribution-user-ele.html"><span class="menu-icon">♟</span>分销账号列表</a><a class="menu-item active" href="distribution-application.html" aria-current="page"><span class="menu-icon">▤</span>申请列表</a></div></nav></aside>
+<div class="app"><aside class="sidebar"><div class="brand"><img src="assets/distribution-brand.png" alt="领榜教育管理系统" style="width:186px;height:32px;object-fit:contain;object-position:left center"></div><nav class="menu"><div class="menu-title open"><span class="menu-icon">⌘</span>分销管理<span class="chevron">⌃</span></div><div class="submenu"><a class="menu-item" href="distribution-user-ele.html"><span class="menu-icon">♟</span>分销账号列表</a><a class="menu-item active" href="distribution-application.html" aria-current="page"><span class="menu-icon">▤</span>申请列表</a><a class="menu-item" href="distribution-rules.html"><span class="menu-icon">⚙</span>分销规则</a></div></nav></aside>
 <main class="main"><header class="topbar"><div class="top-left"><span class="top-icon">☰</span><span class="top-icon">↻</span><div class="breadcrumb"><span>分销管理</span><span>›</span><strong>申请列表</strong></div></div><div class="top-right"><span class="top-action">⌕</span><span class="top-action">⛶</span><span class="top-action">♧</span><div class="admin"><span class="avatar">管</span><span>管理员</span><span>⌄</span></div></div></header>
 <section class="page"><div class="tabbar"><div class="tab">申请列表</div></div><iframe title="合伙人申请列表" style="display:block;width:100%;height:calc(100vh - 150px);min-height:780px;border:0" srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;zh-CN&quot;&gt;

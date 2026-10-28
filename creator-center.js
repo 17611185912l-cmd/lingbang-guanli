@@ -56,7 +56,7 @@ const withdrawLimits = {min:10,max:2000,count:3,daily:3000};
 function maskName(name){const chars=[...name];return chars.length===1?chars[0]:chars.length===2?`${chars[0]}*`:`${chars[0]}*${chars.at(-1)}`}
 const phoneIcon = '<svg class="phone-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8 9 3.2l2 5-1.7 1.4a14 14 0 0 0 5.1 5.1L15.8 13l5 2-.6 2.4c-.3 1.3-1.5 2.2-2.8 2.1A15.8 15.8 0 0 1 4.5 6.6c-.1-1.3.8-2.5 2.1-2.8Z"/></svg>';
 function maskPhone(phone){return `${phone.slice(0,3)}****${phone.slice(-4)}`}
-function commissionPhone(phone){return phone.slice(-4)}
+function commissionPhone(phone){return maskPhone(phone)}
 function escapeHtml(text){const el=document.createElement('span');el.textContent=String(text??'');return el.innerHTML}
 function roles(item){return item.roles.map(role=>`<span class="role-tag role-${role}">${role==='teacher'?'老师':'家长'}</span>`).join('')}
 function showToast(message){toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),1500)}

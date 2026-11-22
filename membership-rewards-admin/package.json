@@ -1,0 +1,23 @@
+{
+  "name": "lingbang-membership-rewards-admin",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --configLoader runner --host 127.0.0.1 --port 5208 --strictPort",
+    "build": "npm run docs && vue-tsc --noEmit && vite build --configLoader runner && node scripts/build-offline.mjs",
+    "test": "tsc src/model.ts src/persistence.ts src/data.ts --outDir .test-build --target ES2022 --module ES2022 --skipLibCheck --strict && node --test tests/*.test.mjs",
+    "docs": "node scripts/build-docs.mjs",
+    "docs:check": "node scripts/build-docs.mjs --check"
+  },
+  "dependencies": {
+    "vue": "^3.5.13",
+    "element-plus": "^2.14.5",
+    "@element-plus/icons-vue": "^2.3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "typescript": "~5.6.3",
+    "vite": "^6.0.5",
+    "vue-tsc": "^2.2.0"
+  }
+}
